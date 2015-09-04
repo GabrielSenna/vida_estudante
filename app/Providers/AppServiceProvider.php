@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace VidaEstudante\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

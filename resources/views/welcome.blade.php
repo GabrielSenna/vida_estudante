@@ -12,7 +12,7 @@
 
                         <div class="card login-card">
                             <div class="card-content">
-                                <form action="" method="post">
+                                <form action="{{ url('auth/login') }}" method="post">
                                     {!! csrf_field() !!}
                                     <div class="input-field">
                                         <input type="text" name="email" id="email">

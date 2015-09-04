@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace VidaEstudante\Events;
 
 abstract class Event
 {

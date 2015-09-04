@@ -68,3 +68,23 @@ a.center-align.register-btn h5{
         margin-top: 15%;
     }
 }
+
+
+
+
+
+/* User área */
+
+
+.avatar-top{
+    width: 40px;
+    border-radius: 50%;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.user-name-top{
+    font-size: 16px;
+    margin-left: 50px;
+    vertical-align: middle;
+}

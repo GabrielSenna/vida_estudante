@@ -14,3 +14,27 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Área de autenticação
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Área de registro
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+// Área comum
+
+Route::group(['middleware'=>'auth'], function(){
+	Route::get('home', ['as'=>'home', 'uses'=>'ProfileController@index']);
+});
+
+// Área deslogado
+
+Route::group(['middleware'=>'guest'], function(){
+	Route::get('/', ['as'=>'home', 'uses'=>'HomeController@index']);
+});
