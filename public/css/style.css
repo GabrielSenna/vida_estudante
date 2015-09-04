@@ -1,7 +1,7 @@
 .big-image{
     width: 100%;
-    overflow: auto;
     position: absolute;
+    overflow: auto;
 }
 
 .login-card{
@@ -27,6 +27,8 @@ a.center-align.register-btn h5{
     margin-top: 5px;
 }
 
+
+
 .image-info{
     margin-top: 20px;
 
@@ -42,9 +44,9 @@ a.center-align.register-btn h5{
 
 @media screen and (max-width: 600px){
     .big-image{
-        height: -moz-calc(200vh - 56px);
-        height: -webkit-calc(200vh - 56px);
-        height: calc(200vh - 56px);
+        height: -moz-calc(100vh - 56px);
+        height: -webkit-calc(100vh - 56px);
+        height: calc(100vh - 56px);
     }
     #welcome-landpage{
         margin-top: 10%;
@@ -58,9 +60,9 @@ a.center-align.register-btn h5{
 
 @media screen and (min-width: 601px){
     .big-image{
-        height: -moz-calc(100vh - 64px);
-        height: -webkit-calc(100vh - 64px);
-        height: calc(100vh - 64px);
+        height: -moz-calc(100% - 64px);
+        height: -webkit-calc(100% - 64px);
+        height: calc(100% - 64px);
     }
     #welcome-landpage{
         margin-top: 15%;
