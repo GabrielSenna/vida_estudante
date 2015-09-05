@@ -3,7 +3,7 @@
         <div class="nav-wrapper container">
             <ul class="hide-on-small-only left">
                 <li>
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         
                         @if(Auth::user()->avatar == 'no-img')
                             <img src="{{ asset('img/no-image.png') }}" alt="" class="avatar-top">

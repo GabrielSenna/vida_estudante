@@ -30,7 +30,10 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Área comum
 
 Route::group(['middleware'=>'auth'], function(){
-	Route::get('home', ['as'=>'home', 'uses'=>'ProfileController@index']);
+	//Área home do usuário
+    Route::get('home', ['as'=>'home', 'uses'=>'ProfileController@index']);
+    //Área de busca
+    Route::get('busca', ['as'=>'search', 'uses'=>'ProfileController@search']);
 });
 
 // Área deslogado

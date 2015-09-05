@@ -83,8 +83,39 @@ a.center-align.register-btn h5{
     position: absolute;
 }
 
+.avatar-image{
+    width: 200px;
+}
+
 .user-name-top{
     font-size: 16px;
     margin-left: 50px;
     vertical-align: middle;
+}
+
+.side-bar-content{
+    position: fixed;
+    width: 100%;
+}
+.side-bar{
+
+
+}
+
+.table-profile{
+    display: table;
+}
+
+.info-profile{
+    margin-left: 30px;
+}
+
+
+.search-field button{
+    margin-top: 10px;
+}
+
+.avatar-search{
+    width: 82px;
+    margin-right: 10px;
 }

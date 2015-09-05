@@ -12,6 +12,15 @@
 
                         <div class="card login-card">
                             <div class="card-content">
+                                @if(count($errors))
+                                    @foreach($errors->all() as $error)
+                                        <div class="card">
+                                            <div class="card-content red lighten-3 white-text">
+                                                <p>{{ $error }}</p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <form action="{{ url('auth/login') }}" method="post">
                                     {!! csrf_field() !!}
                                     <div class="input-field">
@@ -27,7 +36,7 @@
                                     <a href="#" class="btn btn-flat waves-effect blue darken-2 white-text send-form">Entrar com o facebook</a>
                                 </form>
                                 <h6 class="center-align grey-text">Ainda não é cadastrado?</h6>
-                                <a href="#" class="center-align register-btn"><h5>Registre-se aqui!</h5></a>
+                                <a href="{{ url('auth/register') }}" class="center-align register-btn"><h5>Registre-se aqui!</h5></a>
                             </div>
                         </div>
                     </div>
