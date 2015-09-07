@@ -5,7 +5,8 @@
         <div class="collection">
             @foreach($users as $user)
                 <a href="#" class="collection-item">
-                    <img src="{{ (Auth::user()->avatar == 'no-img') ? asset('img/no-image.png') : Auth::user()->avatar }}" alt="" class="left avatar-search">
+
+                    <img src="{{ $user->getAvatar($user->id) }}" alt="" class="left avatar-search">
                     {{ $user->name }}
                     <br>
                     {{ $user->email }}

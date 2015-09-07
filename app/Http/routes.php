@@ -34,6 +34,24 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('home', ['as'=>'home', 'uses'=>'ProfileController@index']);
     //Área de busca
     Route::get('busca', ['as'=>'search', 'uses'=>'ProfileController@search']);
+
+    Route::get('edit', ['as'=>'profile.edit', 'uses'=>'ProfileController@edit']);
+
+    Route::get('edit/avatar/delete', ['as'=>'edit.avatar.delete', 'uses'=>'ProfileController@removeAvatar']);
+
+    Route::post('edit/avatar', ['as'=>'profile.edit.avatar', 'uses'=>'ProfileController@editAvatar']);
+
+    //Rotas de imagens
+
+    Route::group(['prefix'=>'images'], function(){
+        Route::group(['prefix'=>'avatar'], function(){
+            Route::get('{id}', function($id){
+                $image = Image::make(storage_path().'/users/'.$id.'/'.'avatar.jpg');
+                return $image->response();
+            });
+        });
+    });
+
 });
 
 // Área deslogado

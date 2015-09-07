@@ -8,6 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use DB;
+use Auth;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -35,9 +36,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token'];
 
     public function search($p){
-        return DB::table('users')
+        return User::query('users')
             ->where('name','like', '%'.$p.'%')
             ->orWhere('email','like', '%'.$p.'%')
-            ->get(['name','email', 'avatar']);
+            ->get(['id', 'name','email', 'avatar']);
+    }
+
+    public function getAvatar($id){
+        $u = User::find($id);
+
+        if($u->avatar == 'no-img'){
+            return asset('img/no-image.png');
+        }else{
+            return url('images/avatar/'.$id);
+        }
     }
 }

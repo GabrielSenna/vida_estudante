@@ -26,7 +26,11 @@ class AuthController extends Controller
 
     protected $redirectPath = 'home';
 
-    protected $loginPath = 'login';
+    protected $loginPath = '/';
+
+    public function getLogin(){
+        return view('welcome');
+    }
 
     /**
      * Create a new authentication controller instance.

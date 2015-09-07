@@ -7,7 +7,7 @@
         <div class="col l12">
             <div class="card">
                 <div class="card-content table-profile">
-                    <img class="avatar-image left" src="{{ (Auth::user()->avatar == 'no-img') ? asset('img/no-image.png') : (Auth::user()->avatar) }}" alt="">
+                    <img class="avatar-image left" src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" alt="">
                     <div class="left info-profile">
                         <h4 class="left">{{ Auth::user()->name }}</h4>
                         <h5 class="grey-text">Estudante</h5>

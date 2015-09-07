@@ -4,11 +4,7 @@
             <ul class="hide-on-small-only left">
                 <li>
                     <a href="{{ route('home') }}">
-                        
-                        @if(Auth::user()->avatar == 'no-img')
-                            <img src="{{ asset('img/no-image.png') }}" alt="" class="avatar-top">
-
-                        @endif
+                        <img src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" class="avatar-top" alt="">
                         <span class="cyan-text text-darken-3 user-name-top">{{ Auth::user()->name }}</span>
                     </a>
                 </li>
