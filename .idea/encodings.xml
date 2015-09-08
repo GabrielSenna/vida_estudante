@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/public/css/style.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/auth/register.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/profile/edit.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/profile/layouts/sidebar.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/profile/search.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/welcome.blade.php" charset="UTF-8" />

@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="card">
-            <div class="card-content">
+            <div class="card-content ">
                 <h4>Editar perfil</h4>
                 @if(count($errors))
                     @foreach($errors->all() as $error)
@@ -16,8 +16,11 @@
                     @endforeach
                 @endif
                 <div class="row">
-                    <div>
-                        <img src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" alt="" class="avatar-image left">
+                    <div class="col">
+                        <img src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" alt="" class="avatar-image">
+                    </div>
+                    <div class="">
+
                         <form action="{{ route('profile.edit.avatar') }}" method="post" class="col l4" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                             <div class="file-field input-field">
@@ -36,11 +39,13 @@
 
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('edit.avatar.delete') }}" class="left btn btn-flat red lighten-3 white-text">Remover imagem</a>
+                        <a href="{{ route('edit.avatar.delete') }}" class=" btn btn-flat red lighten-3 white-text">Remover imagem</a>
                     </div>
                 </div>
+                <div class="divider"></div>
             </div>
         </div>
     </div>

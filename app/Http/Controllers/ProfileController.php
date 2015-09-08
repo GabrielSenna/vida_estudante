@@ -46,7 +46,7 @@ class ProfileController extends Controller
         $user->save();
         $file = File::makeDirectory(storage_path().'\users\\'.$user->id, 0777, true, true);
         $imageAvatar->save(storage_path().'\users\\'.$user->id.'\\'.'avatar.jpg');
-        return view('profile.edit');
+        return redirect()->route('profile.edit');
     }
 
     public function removeAvatar(){

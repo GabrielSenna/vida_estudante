@@ -67,6 +67,9 @@ a.center-align.register-btn h5{
     #welcome-landpage{
         margin-top: 15%;
     }
+    .logo-top{
+        margin-left: 12px;
+    }
 }
 
 
@@ -120,3 +123,7 @@ a.center-align.register-btn h5{
     margin-right: 10px;
 }
 
+.logo-top{
+    display: block !important;
+    position: absolute !important;
+}
