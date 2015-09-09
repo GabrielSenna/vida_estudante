@@ -127,3 +127,26 @@ a.center-align.register-btn h5{
     display: block !important;
     position: absolute !important;
 }
+
+.friend-action{
+    position: relative;
+    right:30px;
+    
+}
+
+.add-person-friends{
+
+
+    top: 10px;
+
+
+
+}
+.remove-person-friends{
+
+
+    top: 5px;
+
+
+
+}

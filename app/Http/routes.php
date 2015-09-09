@@ -35,6 +35,8 @@ Route::group(['middleware'=>'auth'], function(){
     //Área de busca
     Route::get('busca', ['as'=>'search', 'uses'=>'ProfileController@search']);
 
+    Route::get('friends', ['as'=>'friends', 'uses'=>'FriendsController@index']);
+
     Route::get('edit', ['as'=>'profile.edit', 'uses'=>'ProfileController@edit']);
 
     Route::get('edit/avatar/delete', ['as'=>'edit.avatar.delete', 'uses'=>'ProfileController@removeAvatar']);

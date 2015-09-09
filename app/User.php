@@ -51,4 +51,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return url('images/avatar/'.$id);
         }
     }
+
+    public function friendRequest(){
+        return $this->belongsToMany('VidaEstudante\User', 'friendship_solicitations', 'id_requester', 'id_requested');
+    }
+
+    public function friendRequested(){
+        return $this->belongsToMany('VidaEstudante\User', 'friendship_solicitations', 'id_requested', 'id_requester');
+    }
+
 }
