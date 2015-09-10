@@ -52,12 +52,54 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
+
+    //REQUEST FRIEND RELATIONSHIP
+
     public function friendRequest(){
-        return $this->belongsToMany('VidaEstudante\User', 'friendship_solicitations', 'id_requester', 'id_requested');
+        return $this->belongsToMany('VidaEstudante\User', 'friendships', 'user_id', 'friend_id')
+            ->wherePivot('accepted', false);
     }
 
     public function friendRequested(){
-        return $this->belongsToMany('VidaEstudante\User', 'friendship_solicitations', 'id_requested', 'id_requester');
+        return $this->belongsToMany('VidaEstudante\User', 'friendships', 'friend_id', 'user_id')
+            ->wherePivot('accepted', false);
+    }
+
+    public function requestFriendship($id){
+        if(Auth::user()->id != $id && !$this->isFriend($id)){
+            return $this->friendRequest()->attach($id);
+        }
+
+    }
+
+    public function refuseFriendshipRequest($id){
+        return $this->friendRequested()->detach($id);
+    }
+
+    public function acceptFriendshipRequest($id){
+        return $this->friendRequested()->sync([$id =>['accepted'=>true]], false);
+    }
+
+
+    public function friendsIAccepted(){
+         return $this->belongsToMany('VidaEstudante\User', 'friendships', 'friend_id', 'user_id')
+            ->wherePivot('accepted', true);
+    }
+
+    public function friendsAcceptedMe(){
+        return $this->belongsToMany('VidaEstudante\User', 'friendships', 'user_id', 'friend_id')
+            ->wherePivot('accepted', true);
+    }
+
+    public function myFriends(){
+        return $this->friendsIAccepted->merge($this->friendsAcceptedMe);
+    }
+
+    public function isFriend($id){
+        if(count(Auth::user()->friendRequest()->find($id)) || count(Auth::user()->friendRequested()->find($id)) || count(Auth::user()->myFriends()->find($id))){
+            return true;
+        }
+        return false;
     }
 
 }

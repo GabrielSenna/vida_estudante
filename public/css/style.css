@@ -87,7 +87,8 @@ a.center-align.register-btn h5{
 }
 
 .avatar-image{
-    width: 200px;
+    width: 80px;
+    border-radius: 50%;
 }
 
 .user-name-top{
@@ -121,6 +122,7 @@ a.center-align.register-btn h5{
 .avatar-search{
     width: 82px;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 .logo-top{

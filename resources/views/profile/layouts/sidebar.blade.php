@@ -20,7 +20,7 @@
                 </form>
             </li>
             <li class=""><a href="{{ route('profile.edit') }}" class="collection-item grey-text">Editar perfil<i class="material-icons right grey-text">person</i></a></li>
-            <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text">Amigos<i class="material-icons right grey-text">group</i></a></li>
+            <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text">Amigos({{ count(Auth::user()->myFriends()) }})<i class="material-icons right grey-text">group</i></a></li>
             <li class=""><a href="#" class="collection-item grey-text">Projetos<i class="material-icons right grey-text">insert_drive_file</i></a></li>
             <li class=""><a href="#" class="collection-item grey-text">Seus professores<i class="material-icons right grey-text">school</i></a></li>
         </ul>

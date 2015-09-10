@@ -22,7 +22,7 @@
                     <br>
                     <p>Ocupação</p>
                 </a>
-
+                    <a href="{{ route('addFriend', ['id'=> $user->id]) }}">Adicionar amigo</a>
 
 
             @endforeach

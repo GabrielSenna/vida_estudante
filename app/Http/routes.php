@@ -37,6 +37,12 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('friends', ['as'=>'friends', 'uses'=>'FriendsController@index']);
 
+    Route::get('addFriend/{id}', ['as'=>'addFriend', 'uses'=>'FriendsController@addFriend']);
+
+    Route::get('acceptFriend/{id}', ['as'=>'acceptFriend', 'uses'=>'FriendsController@acceptFriend']);
+
+    Route::get('rejectFriend/{id}', ['as'=>'rejectFriend', 'uses'=>'FriendsController@rejectFriend']);
+
     Route::get('edit', ['as'=>'profile.edit', 'uses'=>'ProfileController@edit']);
 
     Route::get('edit/avatar/delete', ['as'=>'edit.avatar.delete', 'uses'=>'ProfileController@removeAvatar']);

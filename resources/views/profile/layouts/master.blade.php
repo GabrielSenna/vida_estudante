@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
     <script src="{{asset('js/app.js')}}"></script>
 </head>
-<body class="cyan lighten-5">
+<body class="blue-grey lighten-5">
     @include('profile.layouts.header')
     @include('profile.layouts.sidebar')
     @yield('content')

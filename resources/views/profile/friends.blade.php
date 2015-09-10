@@ -5,17 +5,43 @@
 
     <div class="container">
         <div class="row">
-            <div class="col l4">
+            <div class="col l8 m12 s12">
 
                 <div class="collection white">
-                    <h5 class="collection-item">Solicitações</h5>
+                    <h5 class="collection-item grey-text">Amigos</h5>
+                    <div class="">
+                        @foreach(Auth::user()->myFriends() as $user)
+
+
+                            <a href="#" class="collection-item">
+
+                                <img src="{{ $user->getAvatar($user->id) }}" alt="" class="left avatar-search">
+
+                                {{ $user->name }}
+                                <br>
+                                {{ $user->email }}
+                                <br>
+                                <p>Ocupação</p>
+
+                            </a>
+
+
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+            <div class="col l4 m12 s12">
+
+                <div class="collection white">
+                    <h5 class="collection-item grey-text">Solicitações</h5>
                     @foreach(Auth::user()->friendRequested()->get() as $user)
                         <div class="right">
                             <div class="row">
-                                <a href="#" class="btn-floating add-person-friends friend-action blue"><i class="material-icons">add</i></a>
+                                <a href="{{ route('acceptFriend', ['id'=>$user->id]) }}" class="btn-floating add-person-friends friend-action"><i class="material-icons">add</i></a>
                             </div>
                             <div class="row">
-                                <a href="#" class="btn-floating remove-person-friends friend-action red lighten-3"><i class="material-icons">remove</i></a>
+                                <a href="{{ route('rejectFriend', ['id'=>$user->id]) }}" class="btn-floating remove-person-friends friend-action red lighten-2"><i class="material-icons">remove</i></a>
                             </div>
 
 
@@ -37,7 +63,9 @@
                     @endforeach
                 </div>
             </div>
+
         </div>
+    </div>
 
     </div>
 
