@@ -37,8 +37,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function search($p){
         return User::query('users')
-            ->where('name','like', '%'.$p.'%')
-            ->orWhere('email','like', '%'.$p.'%')
+            ->where('id','<>', 1)
+            ->where(function ($query) use($p){
+                $query->where('name','like', '%'.$p.'%')
+                    ->where('email','like', '%'.$p.'%');
+            })
             ->get(['id', 'name','email', 'avatar']);
     }
 
@@ -80,7 +83,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->friendRequested()->sync([$id =>['accepted'=>true]], false);
     }
 
-
     public function friendsIAccepted(){
          return $this->belongsToMany('VidaEstudante\User', 'friendships', 'friend_id', 'user_id')
             ->wherePivot('accepted', true);
@@ -96,7 +98,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function isFriend($id){
-        if(count(Auth::user()->friendRequest()->find($id)) || count(Auth::user()->friendRequested()->find($id)) || count(Auth::user()->myFriends()->find($id))){
+        if(count($this->friendRequest()->find($id)) || count($this->friendRequested()->find($id)) || count($this->myFriends()->find($id))){
+            return true;
+        }
+        return false;
+    }
+
+    public function pendingFriend($id){
+        if(count($this->friendRequest()->find($id))){
             return true;
         }
         return false;

@@ -108,6 +108,7 @@ a.center-align.register-btn h5{
 
 .table-profile{
     display: table;
+    margin-bottom: 25px; 
 }
 
 .info-profile{

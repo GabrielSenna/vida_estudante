@@ -22,9 +22,13 @@
                     <br>
                     <p>Ocupação</p>
                 </a>
+                @if(!Auth::user()->isFriend($user->id))
                     <a href="{{ route('addFriend', ['id'=> $user->id]) }}">Adicionar amigo</a>
-
-
+                @endif
+                @if(Auth::user()->pendingFriend($user->id))
+                    <span>Aguardando aprovação</span>
+                @endif
+                
             @endforeach
         </div>
     </div>
