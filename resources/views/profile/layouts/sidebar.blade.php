@@ -23,7 +23,7 @@
             <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text">Amigos({{ count(Auth::user()->myFriends()) }})<i class="material-icons right grey-text">group</i></a></li>
             <li class=""><a href="#" class="collection-item grey-text">Projetos<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
             <li class=""><a href="#" class="collection-item grey-text">Meu instrutor<i class="material-icons right grey-text">work</i></a></li>
-            <li class=""><a href="#" class="collection-item grey-text">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text">school</i></a></li>
+            <li class=""><a href="{{ route('students') }}" class="collection-item grey-text">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text">school</i></a></li>
         </ul>
 
     </div>

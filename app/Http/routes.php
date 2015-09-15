@@ -49,6 +49,8 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::post('edit/avatar', ['as'=>'profile.edit.avatar', 'uses'=>'ProfileController@editAvatar']);
 
+    Route::get('students',['as'=>'students', 'uses'=>'StudentController@show']);
+
     //Rotas de imagens
 
     Route::group(['prefix'=>'images'], function(){
