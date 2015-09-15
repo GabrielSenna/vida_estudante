@@ -69,7 +69,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function requestFriendship($id){
-        if(Auth::user()->id != $id && !$this->isFriend($id)){
+        if($this->id != $id && !$this->isFriend($id)){
             return $this->friendRequest()->attach($id);
         }
 
@@ -111,4 +111,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return false;
     }
 
+    public function advisor(){
+        return $this->belongsTo('VidaEstudante\User', 'advisor_id', 'id');
+    }
+
+    public function students(){
+        return $this->hasMany('VidaEstudante\User', 'advisor_id');
+    }
+
+    public function allStudents(){
+        return $this->students->all();
+    }
+
+    public function addStudent($id){
+        $p = User::find($id);
+        if($this->isFriend($id)){
+            return $p->advisor()->associate($this)->save();
+        }
+    }
 }

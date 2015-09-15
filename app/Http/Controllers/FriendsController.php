@@ -15,15 +15,15 @@ class FriendsController extends Controller
     }
     public function addFriend($id){
         Auth::user()->requestFriendship($id);
-        return redirect()->route('friends');
+        return redirect()->back();
     }
     public function acceptFriend($id){
         Auth::user()->acceptFriendshipRequest($id);
-        return redirect()->route('friends');
+        return redirect()->back();
     }
     public function rejectFriend($id){
         Auth::user()->refuseFriendshipRequest($id);
-        return redirect()->route('friends');
+        return redirect()->back();
     }
 
 }

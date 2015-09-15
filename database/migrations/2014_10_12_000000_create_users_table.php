@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,6 +14,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('advisor_id')->unsigned()->nullable();
+            $table->foreign('advisor_id')->references('id')->on('users');
             $table->string('name');
             $table->string('avatar')->default('no-img');
             $table->string('email')->unique();

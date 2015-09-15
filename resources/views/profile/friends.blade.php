@@ -10,7 +10,7 @@
                 <div class="collection white">
                     <h5 class="collection-item grey-text">Amigos</h5>
                     <div class="">
-                        @foreach(Auth::user()->myFriends() as $user)
+                        @forelse(Auth::user()->myFriends() as $user)
 
 
                             <a href="#" class="collection-item">
@@ -25,8 +25,9 @@
 
                             </a>
 
-
-                        @endforeach
+                        @empty
+                            <p class="collection-item">Você não possui amigos</p>
+                        @endforelse
                     </div>
 
                 </div>
