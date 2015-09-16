@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Controllers\Controller;
 
+use Auth;
+
 class AdvisorController extends Controller
 {
     public function show(){
-    	return view('profile.advisor');
+    	$user = Auth::user()->advisor;
+    	return view('profile.advisor', compact('user'));
     }
 }

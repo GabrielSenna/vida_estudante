@@ -60,6 +60,6 @@ class ProfileController extends Controller
 
         $user->avatar = 'no-img';
         $user->save();
-        return view('profile.edit');
+        return redirect('edit');
     }
 }
