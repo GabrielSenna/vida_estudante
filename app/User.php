@@ -129,4 +129,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return $p->advisor()->associate($this)->save();
         }
     }
+
+    public function isStudent($id){
+        if(count($this->students()->find($id))){
+            return true;
+        }
+        return false;
+    }
+
+    public function isAdvisor($id){
+        if(count($this->advisor()->find($id))){
+            return true;
+        }
+        return false;
+    }
 }

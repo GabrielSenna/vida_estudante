@@ -7,11 +7,11 @@
                 <li><a href="{{ route('home') }}" class="brand-logo logo-top"><img src="{{ asset('img/logo-header.png') }}" alt=""></a></li>
             </ul>
             <div class="container">
-                <ul class="hide-on-small-only left">
+                <ul class="hide-on-med-and-down left">
                     
                 </ul>
 
-                <ul class="right hide-on-small-only">
+                <ul class="right hide-on-med-and-down">
                     
                     <li>
                         <a href="{{ route('home') }}">

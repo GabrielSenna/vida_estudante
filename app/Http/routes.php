@@ -51,6 +51,10 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('students',['as'=>'students', 'uses'=>'StudentController@show']);
 
+    Route::get('addStudent/{id}',['as'=>'addStudent', 'uses'=>'StudentController@add']);
+
+    Route::get('myAdvisor',['as'=>'myAdvisor', 'uses'=>'AdvisorController@show']);
+
     //Rotas de imagens
 
     Route::group(['prefix'=>'images'], function(){

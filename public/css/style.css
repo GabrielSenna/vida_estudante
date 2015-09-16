@@ -72,8 +72,40 @@ a.center-align.register-btn h5{
     }
 }
 
+@media screen and (max-width: 1900px){
+    .side-bar-content{
+        
+    }
+    .side-bar{
+        display: none;
+    }
+
+    .side-bar-content.open{
+        left: 0px !important;
+        
+    }
+
+    .side-bar-btn-open{
+        position: fixed;
+        top: 75px;
+        left: 10px;
+        z-index: 990;
+    }
+    .side-bar-btn-open i.open{
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        writing-mode: lr-tb;
+    }
+}
 
 
+@media screen and (min-width: 1901px){
+    .side-bar-btn-open{
+        display: none;
+    }
+    
+}
 
 
 /* User área */
@@ -99,11 +131,12 @@ a.center-align.register-btn h5{
 
 .side-bar-content{
     position: fixed;
-    width: 100%;
+    width: auto;
+    z-index: 900;
 }
+
 .side-bar{
-
-
+min-width: 320px;
 }
 
 .table-profile{
@@ -134,22 +167,12 @@ a.center-align.register-btn h5{
 .friend-action{
     position: relative;
     right:30px;
-    
 }
 
 .add-person-friends{
-
-
     top: 10px;
-
-
-
 }
+
 .remove-person-friends{
-
-
     top: 5px;
-
-
-
 }

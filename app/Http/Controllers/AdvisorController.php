@@ -7,16 +7,9 @@ use Illuminate\Http\Request;
 use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Controllers\Controller;
 
-use Auth;
-
-class StudentController extends Controller
+class AdvisorController extends Controller
 {
     public function show(){
-    	return view('profile.students');
-    }
-
-    public function add($id){
-    	Auth::user()->addStudent($id);
-    	return redirect()->back();
+    	return view('profile.advisor');
     }
 }
