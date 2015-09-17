@@ -46,14 +46,14 @@
                         <div class="row">
                             <div class="col l6 m12 s12">
                                 <div class="image-info">
-                                    <img src="img/estudante.jpg" alt="">
+                                    <img src="{{ asset('img/estudante.jpg') }}" alt="">
                                     <h5 class="center-align cyan-text text-darken-4">Aluno</h5>
                                     <p class="cyan-text text-lighten-4 center-align">Não se preocupe mais em ter que marcar horário com seu professor para orientar seu projeto</p>
                                 </div>
                             </div>
                             <div class="col l6 m12 s12">
                                 <div class="image-info">
-                                    <img src="img/professor.jpg" alt="">
+                                    <img src="{{ asset('img/professor.jpg') }}" alt="">
                                     <h5 class="center-align cyan-text text-darken-4">Professor</h5>
                                     <p class="cyan-text text-lighten-4 center-align">Oriente seus alunos de forma objetiva e sem precisar sair de casa</p>
                                 </div>
