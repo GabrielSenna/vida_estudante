@@ -21,9 +21,16 @@
             </li>
             <li class=""><a href="{{ route('profile.edit') }}" class="collection-item grey-text">Editar perfil<i class="material-icons right grey-text">person</i></a></li>
             <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text">Amigos({{ count(Auth::user()->myFriends()) }})<i class="material-icons right grey-text">group</i></a></li>
-            <li class=""><a href="#" class="collection-item grey-text">Projeto<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
+            
+            
+            <li class="collection-item blue-grey lighten-5"><h5>Área de estudante</h5></li>
+            <li class=""><a href="#" class="collection-item grey-text">Meu Projeto<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
             <li class=""><a href="{{ route('myAdvisor') }}" class="collection-item grey-text">Meu instrutor<i class="material-icons right grey-text">work</i></a></li>
+
+
+            <li class="collection-item blue-grey lighten-5"><h5>Área de orientador</h5></li>
             <li class=""><a href="{{ route('students') }}" class="collection-item grey-text">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text">school</i></a></li>
+            <li class=""><a href="#" class="collection-item grey-text">Projetos dos meus alunos<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
         </ul>
 
     </div>
