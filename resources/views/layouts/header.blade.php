@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
     <nav class="white">
         <div class="nav-wrapper container">
-            <a href="{{ route('home') }}" class="brand-logo"><img src="{{ asset('img/logo-header.png') }}" alt=""></a>
+            <a href="{{ route('home') }}" class="brand-logo"><img src="img/logo-header.png" alt=""></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#" class="cyan-text">Contato</a></li>
                 <li><a href="#" class="cyan-text">Entenda como funciona</a></li>
