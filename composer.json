@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "ext-gd": "*",
         "laravel/framework": "5.1.*",
+        "ext-gd": "*",
         "intervention/image": "^2.3",
     },
     "require-dev": {
