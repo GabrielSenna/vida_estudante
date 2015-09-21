@@ -30,10 +30,16 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Área comum
 
 Route::group(['middleware'=>'auth'], function(){
-	//Área home do usuário
+	
+    //Área home do usuário
+    
     Route::get('home', ['as'=>'home', 'uses'=>'ProfileController@index']);
+    
     //Área de busca
+    
     Route::get('busca', ['as'=>'search', 'uses'=>'ProfileController@search']);
+
+    //Área de amigos
 
     Route::get('friends', ['as'=>'friends', 'uses'=>'FriendsController@index']);
 
@@ -43,17 +49,27 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('rejectFriend/{id}', ['as'=>'rejectFriend', 'uses'=>'FriendsController@rejectFriend']);
 
+    //Área de edição de perfil
+
     Route::get('edit', ['as'=>'profile.edit', 'uses'=>'ProfileController@edit']);
+
+    Route::post('edit', ['as'=>'user.edit', 'uses'=>'ProfileController@update']);
 
     Route::get('edit/avatar/delete', ['as'=>'edit.avatar.delete', 'uses'=>'ProfileController@removeAvatar']);
 
     Route::post('edit/avatar', ['as'=>'profile.edit.avatar', 'uses'=>'ProfileController@editAvatar']);
+
+    //Área acadêmica
 
     Route::get('students',['as'=>'students', 'uses'=>'StudentController@show']);
 
     Route::get('addStudent/{id}',['as'=>'addStudent', 'uses'=>'StudentController@add']);
 
     Route::get('myAdvisor',['as'=>'myAdvisor', 'uses'=>'AdvisorController@show']);
+
+    //Área de projetos
+
+    Route::get('myProject', ['as'=>'myProject', 'uses'=> 'ProjectsController@myProject']);
 
     //Rotas de imagens
 

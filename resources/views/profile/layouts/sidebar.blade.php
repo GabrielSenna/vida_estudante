@@ -9,28 +9,29 @@
 
                         <div class="col l10">
                             <input type="text" name="p" id="p">
-                            <label for="p" class="blue-text">Buscar</label>
+                            <label for="p" class="grey-text">Buscar</lab2l>
                         </div>
                         <div class="col l2">
-                            <button type="submit" class="btn btn-floating btn-flat orange waves-effect"><i class="material-icons">search</i></button>
+                            <button type="submit" class="btn btn-floating btn-flat yellow darken-2 waves-effect"><i class="material-icons">search</i></button>
                         </div>
 
                     </div>
 
                 </form>
             </li>
-            <li class=""><a href="{{ route('profile.edit') }}" class="collection-item grey-text">Editar perfil<i class="material-icons right grey-text">person</i></a></li>
-            <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text">Amigos({{ count(Auth::user()->myFriends()) }})<i class="material-icons right grey-text">group</i></a></li>
+            <li class=""><a href="{{ route('profile.edit') }}" class="collection-item grey-text text-darken-2">Editar perfil<i class="material-icons right grey-text text-darken-2">person</i></a></li>
+            <li class=""><a href="{{ route('friends') }}" class="collection-item grey-text text-darken-2">Amigos({{ count(Auth::user()->myFriends()) }})<i class="material-icons right grey-text text-darken-2">group</i></a></li>
+            <li class=""><a href="#" class="collection-item grey-text text-darken-2">Configurações<i class="material-icons right grey-text text-darken-2">settings</i></a></li>
             
-            
-            <li class="collection-item blue-grey lighten-5"><h5>Área de estudante</h5></li>
-            <li class=""><a href="#" class="collection-item grey-text">Meu Projeto<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
-            <li class=""><a href="{{ route('myAdvisor') }}" class="collection-item grey-text">Meu instrutor<i class="material-icons right grey-text">work</i></a></li>
+            <div class="divider"></div>
+            <li class="collection-item blue-grey lighten-5 cyan-text text-darken-2">Área de estudante</li>
+            <li class=""><a href="{{ route('myProject') }}" class="collection-item grey-text text-darken-2">Meu Projeto<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
+            <li class=""><a href="{{ route('myAdvisor') }}" class="collection-item grey-text text-darken-2">Meu instrutor<i class="material-icons right grey-text text-darken-2">work</i></a></li>
 
-
-            <li class="collection-item blue-grey lighten-5"><h5>Área de orientador</h5></li>
-            <li class=""><a href="{{ route('students') }}" class="collection-item grey-text">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text">school</i></a></li>
-            <li class=""><a href="#" class="collection-item grey-text">Projetos dos meus alunos<i class="material-icons right grey-text">picture_as_pdf</i></a></li>
+            <div class="divider"></div>
+            <li class="collection-item blue-grey lighten-5 yellow-text text-darken-2">Área de orientador</li>
+            <li class=""><a href="{{ route('students') }}" class="collection-item grey-text text-darken-2">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text text-darken-2">school</i></a></li>
+            <li class=""><a href="#" class="collection-item grey-text text-darken-2">Projetos dos meus alunos<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
         </ul>
 
     </div>

@@ -33,6 +33,10 @@ class ProfileController extends Controller
         return view('profile.edit');
     }
 
+    public function update(){
+        
+    }
+
     public function editAvatar(AvatarRequest $request){
         //dd($request->file('image-content'));
         $image = $request->file('image-content');

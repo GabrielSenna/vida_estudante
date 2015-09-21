@@ -37,7 +37,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function search($p){
         return User::query('users')
-            ->where('id','<>', 1)
+            ->where('id','<>', Auth::user()->id)
             ->where(function ($query) use($p){
                 $query->where('name','like', '%'.$p.'%')
                     ->where('email','like', '%'.$p.'%');
@@ -45,13 +45,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             ->get(['id', 'name','email', 'avatar']);
     }
 
-    public function getAvatar($id){
-        $u = User::find($id);
-
-        if($u->avatar == 'no-img'){
+    public function myAvatar(){
+        if($this->avatar == 'no-img'){
             return asset('img/no-image.png');
         }else{
             return url('images/avatar/'.$id);
+        }
+    }
+
+    public function getAvatar(){
+        
+
+        if($this->avatar == 'no-img'){
+            return asset('img/no-image.png');
+        }else{
+            return url('images/avatar/'.$this->id);
         }
     }
 
@@ -149,6 +157,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
     
     public function projectFromAdvisor(){
-        return $this->hasOne('VidaEstudante\Project', 'advisor_id');
+        return $this->hasMany('VidaEstudante\Project', 'advisor_id');
     }
 }

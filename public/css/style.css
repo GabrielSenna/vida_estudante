@@ -123,6 +123,10 @@ a.center-align.register-btn h5{
     border-radius: 50%;
 }
 
+.avatar-image-edit{
+    margin-top: 38px;
+}
+
 .user-name-top{
     font-size: 16px;
     margin-left: 50px;

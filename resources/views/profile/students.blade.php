@@ -13,7 +13,7 @@
 
                             <a href="#" class="collection-item">
 
-                                <img src="{{ $user->getAvatar($user->id) }}" alt="" class="left avatar-search">
+                                <img src="{{ $user->getAvatar() }}" alt="" class="left avatar-search">
 
                                 {{ $user->name }}
                                 <br>

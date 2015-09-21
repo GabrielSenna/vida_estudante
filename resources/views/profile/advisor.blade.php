@@ -20,7 +20,7 @@
                         @else
                         <h5>Você não tem um orientador.</h5>
                             <br>
-                            <p>Peça para seu orientador lhe adicione à sua lista de alunos.</p>
+                            <p>Peça para que seu orientador lhe adicione à sua lista de alunos.</p>
                         @endif
                     </div>
 
