@@ -14,10 +14,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('advisor_id')->unsigned()->nullable();
-            $table->foreign('advisor_id')->references('id')->on('users');
             $table->string('name');
             $table->string('avatar')->default('no-img');
+            $table->string('occupation')->nullable();
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();

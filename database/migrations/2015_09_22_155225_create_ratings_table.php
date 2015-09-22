@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('subject');
-            $table->string('file_path');
-            $table->text('theme');
-            $table->text('description');
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->text('comment');
+            $table->decimal('grade');
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projects');
+        Schema::drop('ratings');
     }
 }

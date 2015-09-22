@@ -12,16 +12,15 @@ class Project extends Model
     	'grade',
     	'file_path',
     	'description',
-    	'student_id',
-    	'advisor_id',
+    	'theme',
     ];
 
-    public function student(){
-    	return $this->belongsTo('VidaEstudante\User', 'student_id');
+    public function students(){
+    	return $this->belongsToMany('VidaEstudante\User', 'project_student', 'student_id', 'project_id');
     }
 
-    public function advisor(){
-    	return $this->belongsTo('VidaEstudante\User', 'advisor_id');
+    public function advisors(){
+    	return $this->belongsToMany('VidaEstudante\User', 'project_advisor', 'advisor_id', 'project_id');
     }
 
 }

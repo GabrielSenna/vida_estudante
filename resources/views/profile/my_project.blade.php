@@ -33,7 +33,7 @@
 							      		<div class="btn yellow darken-2 btn-flat white-text">
 							        		<span class="left">Arquivo</span>
 							        		<i class="material-icons right">picture_as_pdf</i>
-							        		<input type="file">
+							        		<input type="file" name="project_file" id="project_file">
 							      		</div>
 							      		<div class="file-path-wrapper">
 							        		<input class="file-path validate" type="text" id="file_path" name="file_path">

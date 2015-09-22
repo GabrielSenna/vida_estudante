@@ -119,8 +119,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return false;
     }
 
-    public function advisor(){
-        return $this->belongsTo('VidaEstudante\User', 'advisor_id', 'id');
+
+    public function advisors(){
+        return $this->projectsFromStudent()->advisors();
     }
 
     public function students(){
@@ -152,11 +153,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return false;
     }
 
-    public function projectFromStudent(){
-        return $this->hasOne('VidaEstudante\Project', 'student_id');
+    public function projectsFromStudent(){
+        return $this->belongsToMany('VidaEstudante\Project', 'project_student', 'student_id');
     }
     
-    public function projectFromAdvisor(){
-        return $this->hasMany('VidaEstudante\Project', 'advisor_id');
+    public function projectsFromAdvisor(){
+        return $this->belongsToMany('VidaEstudante\Project', 'project_advisor', 'advisor_id');
     }
 }

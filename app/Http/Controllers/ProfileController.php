@@ -11,6 +11,7 @@ use Intervention\Image\Facades\Image;
 use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Requests\SearchRequest;
 use VidaEstudante\Http\Requests\AvatarRequest;
+use VidaEstudante\Http\Requests\ProjectRequest;
 use VidaEstudante\Http\Controllers\Controller;
 
 use Auth;
@@ -33,8 +34,8 @@ class ProfileController extends Controller
         return view('profile.edit');
     }
 
-    public function update(){
-        
+    public function update(ProjectRequest $request){
+        return redirect()->back();
     }
 
     public function editAvatar(AvatarRequest $request){
