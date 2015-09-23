@@ -4,6 +4,7 @@ namespace VidaEstudante;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
@@ -26,7 +27,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'advisor_id', 'email', 'avatar', 'password'];
+    protected $fillable = [
+        'name',
+        'occupation',
+        'email',
+        'avatar',
+        'password',
+     ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -121,33 +128,41 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
     public function advisors(){
-        return $this->projectsFromStudent()->advisors();
+
+        foreach($this->projectsFromStudent as $project){
+            $advisors[] = $project->advisors;
+        }
+        if(isset($advisors)){
+            return Collection::make($advisors);
+        }
+        else{
+            return new Collection;
+        }
     }
 
     public function students(){
-        return $this->hasMany('VidaEstudante\User', 'advisor_id');
-    }
-
-    public function allStudents(){
-        return $this->students->all();
-    }
-
-    public function addStudent($id){
-        $p = User::find($id);
-        if($this->isFriend($id)){
-            return $p->advisor()->associate($this)->save();
+        foreach($this->projectsFromAdvisor as $project){
+            $students[] = $project->students;
+        }
+        if(isset($students)){
+            return Collection::make($students);
+        }
+        else{
+            return new Collection;
         }
     }
 
     public function isStudent($id){
-        if(count($this->students()->find($id))){
-            return true;
+        if($this->students() != null){
+            if(count($this->students()->keyBy($id))){
+                return true;
+            }
         }
         return false;
     }
 
     public function isAdvisor($id){
-        if(count($this->advisor()->find($id))){
+        if(count($this->advisor()->keyBy($id))){
             return true;
         }
         return false;

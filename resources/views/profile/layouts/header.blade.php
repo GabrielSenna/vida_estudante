@@ -4,7 +4,7 @@
 
         <div class="nav-wrapper">
             <ul>
-                <li><a href="{{ route('home') }}" class="brand-logo logo-top"><img src="img/logo-header.png" alt=""></a></li>
+                <li><a href="{{ route('home') }}" class="brand-logo logo-top"><img src="{{ asset('img/logo-header.png') }}" alt=""></a></li>
             </ul>
             <div class="container">
                 <ul class="hide-on-med-and-down left">

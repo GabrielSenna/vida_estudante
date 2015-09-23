@@ -69,7 +69,12 @@ Route::group(['middleware'=>'auth'], function(){
 
     //Área de projetos
 
-    Route::get('myProject', ['as'=>'myProject', 'uses'=> 'ProjectsController@myProject']);
+    Route::group(['prefix'=>'projects'], function(){
+        Route::get('list', ['as'=>'myProjects', 'uses'=> 'ProjectsController@myProjects']);
+        Route::get('create', ['as'=>'createProject', 'uses'=> 'ProjectsController@create']);
+        
+    });
+    
 
     //Rotas de imagens
 

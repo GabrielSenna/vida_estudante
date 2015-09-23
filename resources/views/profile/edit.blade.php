@@ -58,7 +58,7 @@
                             
                         </div>
                         <div class="input-field">
-                            <input type="text" id="occupation" name="occupation" value="">
+                            <input type="text" id="occupation" name="occupation" value="{{ Auth::user()->occupation }}">
                             <label for="occupation">Ocupação atual</label>
                            
                         </div>

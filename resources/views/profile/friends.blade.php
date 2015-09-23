@@ -25,10 +25,7 @@
                                 <p>Ocupação</p>
 
                             </a>
-                            @if(Auth::user()->isStudent($user->id) || Auth::user()->isAdvisor($user->id))
-                            @else
-                                <a href="{{ route('addStudent', ['id'=>$user->id]) }}">Adicionar como estudante</a>
-                            @endif
+                            
                             
                         @empty
                             <p class="collection-item">Você não possui amigos</p>

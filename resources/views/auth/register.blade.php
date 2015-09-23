@@ -26,6 +26,10 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field">
+                    <input type="text" name="occupation" id="occupation" value="{{ old('occupation') }}">
+                    <label for="occupation">Ocupação</label>
+                </div>
+                <div class="input-field">
                     <input type="password" name="password" id="password">
                     <label for="password">Senha</label>
                 </div>

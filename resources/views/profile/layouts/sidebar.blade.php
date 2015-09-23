@@ -25,12 +25,12 @@
             
             <div class="divider"></div>
             <li class="collection-item blue-grey lighten-5 cyan-text text-darken-2">Área de estudante</li>
-            <li class=""><a href="{{ route('myProject') }}" class="collection-item grey-text text-darken-2">Meu Projeto<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
+            <li class=""><a href="{{ route('myProjects') }}" class="collection-item grey-text text-darken-2">Meus Projetos()<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
             <li class=""><a href="{{ route('myAdvisor') }}" class="collection-item grey-text text-darken-2">Meu instrutor<i class="material-icons right grey-text text-darken-2">work</i></a></li>
 
             <div class="divider"></div>
             <li class="collection-item blue-grey lighten-5 yellow-text text-darken-2">Área de orientador</li>
-            <li class=""><a href="{{ route('students') }}" class="collection-item grey-text text-darken-2">Meus alunos({{ count(Auth::user()->allStudents()) }})<i class="material-icons right grey-text text-darken-2">school</i></a></li>
+            <li class=""><a href="{{ route('students') }}" class="collection-item grey-text text-darken-2">Meus alunos({{ count(Auth::user()->students()) }})<i class="material-icons right grey-text text-darken-2">school</i></a></li>
             <li class=""><a href="#" class="collection-item grey-text text-darken-2">Projetos dos meus alunos<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
         </ul>
 

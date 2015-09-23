@@ -8,7 +8,11 @@ use VidaEstudante\Http\Controllers\Controller;
 
 class ProjectsController extends Controller
 {
-	public function myProject(){
-		return view('profile.my_project');
+	public function myProjects(){
+		return view('profile.projects.my_project');
+	}
+
+	public function create(){
+		return view('profile.projects.create');
 	}
 }

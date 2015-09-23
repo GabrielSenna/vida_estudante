@@ -8,7 +8,7 @@
                 <div class="collection white">
                     <h5 class="collection-item grey-text">Alunos</h5>
                     <div class="">
-                        @forelse(Auth::user()->students as $user)
+                        @forelse(Auth::user()->students() as $user)
 
 
                             <a href="#" class="collection-item">

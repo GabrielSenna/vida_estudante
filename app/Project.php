@@ -16,11 +16,11 @@ class Project extends Model
     ];
 
     public function students(){
-    	return $this->belongsToMany('VidaEstudante\User', 'project_student', 'student_id', 'project_id');
+    	return $this->belongsToMany('VidaEstudante\User', 'project_student', 'project_id', 'student_id');
     }
 
     public function advisors(){
-    	return $this->belongsToMany('VidaEstudante\User', 'project_advisor', 'advisor_id', 'project_id');
+    	return $this->belongsToMany('VidaEstudante\User', 'project_advisor', 'project_id', 'advisor_id');
     }
 
 }
