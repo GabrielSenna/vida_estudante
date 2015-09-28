@@ -175,4 +175,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function projectsFromAdvisor(){
         return $this->belongsToMany('VidaEstudante\Project', 'project_advisor', 'advisor_id');
     }
+
+    public function ratings(){
+        return $this->hasMany('VidaEstudante\Rating', 'advisor_id');
+    }
 }

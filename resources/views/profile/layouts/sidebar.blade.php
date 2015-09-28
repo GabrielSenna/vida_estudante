@@ -25,7 +25,7 @@
             
             <div class="divider"></div>
             <li class="collection-item blue-grey lighten-5 cyan-text text-darken-2">Área de estudante</li>
-            <li class=""><a href="{{ route('myProjects') }}" class="collection-item grey-text text-darken-2">Meus Projetos()<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
+            <li class=""><a href="{{ route('myProjects') }}" class="collection-item grey-text text-darken-2">Meus Projetos({{ count(Auth::user()->projectsFromStudent) }})<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
             <li class=""><a href="{{ route('myAdvisor') }}" class="collection-item grey-text text-darken-2">Meu instrutor<i class="material-icons right grey-text text-darken-2">work</i></a></li>
 
             <div class="divider"></div>

@@ -4,7 +4,9 @@ namespace VidaEstudante\Http\Controllers;
 
 use Illuminate\Http\Request;
 use VidaEstudante\Http\Requests;
+use VidaEstudante\Http\Requests\ProjectRequest;
 use VidaEstudante\Http\Controllers\Controller;
+use VidaEstudante\Project;
 
 class ProjectsController extends Controller
 {
@@ -14,5 +16,8 @@ class ProjectsController extends Controller
 
 	public function create(){
 		return view('profile.projects.create');
+	}
+	public function store(ProjectRequest $request){
+		
 	}
 }

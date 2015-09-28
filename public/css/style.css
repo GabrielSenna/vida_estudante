@@ -133,6 +133,10 @@ a.center-align.register-btn h5{
     vertical-align: middle;
 }
 
+.occupation-text{
+    display: inline-table;
+}
+
 .side-bar-content{
     position: fixed;
     width: auto;

@@ -6,15 +6,7 @@
         <div class="card">
             <div class="card-content ">
                 <h4>Editar perfil</h4>
-                @if(count($errors))
-                    @foreach($errors->all() as $error)
-                        <div class="card">
-                            <div class="card-content red lighten-3 white-text">
-                                <p>{{ $error }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
+                @include('errors._error-alert')
                 <div class="row">
                     <div class="col">
                         <img src="{{ Auth::user()->getAvatar(Auth::user()->id) }}" alt="" class="avatar-image avatar-image-edit">
@@ -49,7 +41,7 @@
                 <div class="divider"></div>
                 <div class="row">
                     <br>
-                    <form method="post" action="{{ route('user.edit') }}" class="col l3 m5 s12">
+                    <form method="post" action="{{ route('profile.update') }}" class="col l3 m5 s12">
                         {!! csrf_field() !!}
                         <div class="input-field">
                             <input type="text" id="name" name="name" value="{{ Auth::user()->name }}">

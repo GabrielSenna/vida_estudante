@@ -53,7 +53,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('edit', ['as'=>'profile.edit', 'uses'=>'ProfileController@edit']);
 
-    Route::post('edit', ['as'=>'user.edit', 'uses'=>'ProfileController@update']);
+    Route::post('update', ['as'=>'profile.update', 'uses'=>'ProfileController@update']);
 
     Route::get('edit/avatar/delete', ['as'=>'edit.avatar.delete', 'uses'=>'ProfileController@removeAvatar']);
 
@@ -72,9 +72,10 @@ Route::group(['middleware'=>'auth'], function(){
     Route::group(['prefix'=>'projects'], function(){
         Route::get('list', ['as'=>'myProjects', 'uses'=> 'ProjectsController@myProjects']);
         Route::get('create', ['as'=>'createProject', 'uses'=> 'ProjectsController@create']);
-        
+        Route::post('store', ['as'=>'storeProject', 'uses'=> 'ProjectsController@store']);
     });
     
+
 
     //Rotas de imagens
 

@@ -4,7 +4,7 @@ namespace VidaEstudante\Http\Requests;
 
 use VidaEstudante\Http\Requests\Request;
 
-class ProjectRequest extends Request
+class ProfileRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,9 @@ class ProjectRequest extends Request
      */
     public function rules()
     {
-
-        
         return [
-            'project_file'=>'required|mimes:pdf',
-            'title'=>'required',
-            'description'=>'required',
-            'advisors'=>'required',
-            'file_path'=>'required',
+            'name' => 'required',
+            'occupation' => 'required',
         ];
     }
 }

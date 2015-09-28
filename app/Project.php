@@ -9,7 +9,6 @@ class Project extends Model
     protected $fillable = [
     	'title',
     	'subject',
-    	'grade',
     	'file_path',
     	'description',
     	'theme',
@@ -23,4 +22,7 @@ class Project extends Model
     	return $this->belongsToMany('VidaEstudante\User', 'project_advisor', 'project_id', 'advisor_id');
     }
 
+    public function ratings(){
+        return $this->hasMany('VidaEstudante\Rating', 'project_id');
+    }
 }

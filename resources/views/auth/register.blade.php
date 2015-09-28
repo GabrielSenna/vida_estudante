@@ -6,15 +6,7 @@
 </div>
     <div class="card login-card">
         <div class="card-content">
-            @if(count($errors))
-                @foreach($errors->all() as $error)
-                    <div class="card">
-                        <div class="card-content red lighten-3 white-text">
-                            <p>{{ $error }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            @endif
+            @include('errors._error-alert')
             <form action="{{ url('auth/register') }}" method="post">
                 {!! csrf_field() !!}
                 <div class="input-field">

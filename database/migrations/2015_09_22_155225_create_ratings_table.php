@@ -16,6 +16,8 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
+            $table->integer('advisor_id')->unsigned();
+            $table->foreign('advisor_id')->references('id')->on('users');
             $table->text('comment');
             $table->decimal('grade');
             $table->boolean('approved')->default(false);
