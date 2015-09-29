@@ -7,6 +7,7 @@ use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Requests\ProjectRequest;
 use VidaEstudante\Http\Controllers\Controller;
 use VidaEstudante\Project;
+use File;
 
 class ProjectsController extends Controller
 {
@@ -18,6 +19,11 @@ class ProjectsController extends Controller
 		return view('profile.projects.create');
 	}
 	public function store(ProjectRequest $request){
-		
+		$project = Project::create(['title'=>$request->title, 'description'=>$request->description, 'file_path'=> 'none', 'theme'=> $request->theme, 'subject'=>$request->subject]);
+		$projectFile = $request->file('project_file');
+		$path = File::makeDirectory(storage_path().'\projects\\'.$project->id, 0777, true, true);
+		$projectFile->save(storage_path().'\projects\\'.$project->id);
+		$project->file_path = $projectFile;
+		$project->save();
 	}
 }

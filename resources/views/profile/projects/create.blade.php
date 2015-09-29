@@ -44,7 +44,17 @@
 	                    				<textarea name="description" id="description" class="materialize-textarea"></textarea>
 	                    				<label for="description">Descrição</label>
 	                    				
-	                    			</div>	
+	                    			</div>
+                                    <div class="input-field col l6 m12 s12">
+                                        <input type="text" name="theme" id="theme">
+                                        <label for="theme">Tema</label>
+                                        
+                                    </div> 
+                                    <div class="input-field col l6 m12 s12">
+                                        <input type="text" name="subject" id="subject">
+                                        <label for="theme">Assunto</label>
+                                        
+                                    </div>  	
                                     <div class="row">
                                         <div class="col l12 m12 s12">
                                             <h5>Membros do projeto</h5>        

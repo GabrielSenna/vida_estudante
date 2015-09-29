@@ -29,6 +29,8 @@ class ProjectRequest extends Request
             'project_file'=>'required|mimes:pdf',
             'title'=>'required',
             'description'=>'required',
+            'theme'=>'required',
+            'subject'=>'required',
             'advisors'=>'required',
             'file_path'=>'required',
         ];
