@@ -5,29 +5,50 @@
         <div class="row">
             <div class="col l8 m12 s12">
 
-                <div class="collection white">
-                    <h5 class="collection-item grey-text">Alunos</h5>
-                    <div class="">
-                        @forelse(Auth::user()->students() as $user)
+                <div class=" white card">
+                    <div class="card-content">
+                        
+                    
+                        <h5 class="blue-text text-darken-2">Alunos</h5>
+                        <div >
+                            @if(count(Auth::user()->students()))
+                            <ul class="collection">
+                                @foreach (Auth::user()->projectsFromAdvisor as $project)
+                                <li class="collection-item"><h5><small>Projeto</small> {{ $project->title }}</h5>
+                                    <ul class="collection">
+                                        
+                                            @foreach($project->students as $student)
+                                                
+                                                <a href="#" class="collection-item" style="padding-bottom:4%;">
 
+                                                    <img src="{{ $student->getAvatar() }}" alt="" class="left avatar-search">
 
-                            <a href="#" class="collection-item">
+                                                    <strong class="blue-text text-darken-2">{{ $student->name }}</strong>
+                                                    <br>
+                                                    {{ $student->email }}
+                                                    <br>
+                                                    <p>{{ $student->occupation }}</p>
 
-                                <img src="{{ $user->getAvatar() }}" alt="" class="left avatar-search">
+                                                </a>
+                                                
+                                                    
+                                            @endforeach
+                                        
+                                    </ul>
+                                    
+                                </li>
+                                    
+                                @endforeach
+                            </ul>
+                                
 
-                                {{ $user->name }}
+                            @else
+                            <h5>Você não tem alunos.</h5>
                                 <br>
-                                {{ $user->email }}
-                                <br>
-                                <p>Ocupação</p>
-
-                            </a>
-
-                        @empty
-                            <p class="collection-item">Você não possui alunos</p>
-                        @endforelse
+                                <p>Peça para que seu aluno crie um novo projeto e lhe adicione como orientador.</p>
+                            @endif
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

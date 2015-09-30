@@ -8,6 +8,7 @@ use VidaEstudante\Http\Requests\ProjectRequest;
 use VidaEstudante\Http\Controllers\Controller;
 use VidaEstudante\Project;
 use File;
+use Auth;
 
 class ProjectsController extends Controller
 {
@@ -19,11 +20,17 @@ class ProjectsController extends Controller
 		return view('profile.projects.create');
 	}
 	public function store(ProjectRequest $request){
-		$project = Project::create(['title'=>$request->title, 'description'=>$request->description, 'file_path'=> 'none', 'theme'=> $request->theme, 'subject'=>$request->subject]);
+		$project = Project::create(['title'=>$request->title, 'description'=>$request->description, 'file_path'=> 'project.pdf', 'theme'=> $request->theme, 'subject'=>$request->subject]);
 		$projectFile = $request->file('project_file');
+		if($request->students!= null){
+			$project->students()->sync($request->students);
+			$project->students()->attach(Auth::user()->id);
+		}
+		else{
+			$project->students()->sync(Auth::user()->id);
+		}
+		$project->advisors()->sync($request->advisors);
 		$path = File::makeDirectory(storage_path().'\projects\\'.$project->id, 0777, true, true);
-		$projectFile->save(storage_path().'\projects\\'.$project->id);
-		$project->file_path = $projectFile;
-		$project->save();
+		$projectFile->move(storage_path().'\projects\\'.$project->id, 'project.pdf');
 	}
 }
