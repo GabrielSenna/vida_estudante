@@ -9,6 +9,7 @@ use VidaEstudante\Http\Controllers\Controller;
 use VidaEstudante\Project;
 use File;
 use Auth;
+use Response;
 
 class ProjectsController extends Controller
 {
@@ -27,10 +28,18 @@ class ProjectsController extends Controller
 			$project->students()->attach(Auth::user()->id);
 		}
 		else{
-			$project->students()->sync(Auth::user()->id);
+			$project->students()->attach(Auth::user()->id);
 		}
 		$project->advisors()->sync($request->advisors);
 		$path = File::makeDirectory(storage_path().'\projects\\'.$project->id, 0777, true, true);
 		$projectFile->move(storage_path().'\projects\\'.$project->id, 'project.pdf');
+	}
+
+	public function downloadProject($id){
+		$file= storage_path().'\projects\\'.$id.'\project.pdf';
+        $headers = [
+              'Content-Type: application/pdf',
+            ];
+        return Response::download($file, 'project'.$id.'.pdf', $headers);
 	}
 }
