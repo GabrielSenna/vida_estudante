@@ -42,4 +42,8 @@ class ProjectsController extends Controller
             ];
         return Response::download($file, 'project'.$id.'.pdf', $headers);
 	}
+
+	public function myStudentsProjects(){
+		return view('profile.projects.advisor_project');
+	}
 }

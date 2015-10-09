@@ -31,7 +31,7 @@
             <div class="divider"></div>
             <li class="collection-item blue-grey lighten-5 yellow-text text-darken-2">Área de orientador</li>
             <li class=""><a href="{{ route('students') }}" class="collection-item grey-text text-darken-2">Meus alunos({{ count(Auth::user()->students()) }})<i class="material-icons right grey-text text-darken-2">school</i></a></li>
-            <li class=""><a href="#" class="collection-item grey-text text-darken-2">Projetos dos meus alunos<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
+            <li class=""><a href="{{ route('MyStudentsProjects') }}" class="collection-item grey-text text-darken-2">Projetos dos meus alunos({{ count(Auth::user()->projectsFromAdvisor) }})<i class="material-icons right grey-text text-darken-2">picture_as_pdf</i></a></li>
         </ul>
 
     </div>

@@ -7,7 +7,7 @@
         <div class="col l12 m12 s12">
             <div class="card col l7 m8 s12">
                 <div class="card-content ">
-                    @if(count(Auth::user()->projectsFromStudent()))
+                    @if(count(Auth::user()->projectsFromStudent))
                         <p>Deseja criar um projeto?</p>
                             <br>
                             <a href="{{ route('createProject') }}" class="btn">Criar novo projeto</a>

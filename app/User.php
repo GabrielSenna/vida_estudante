@@ -47,7 +47,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             ->where('id','<>', Auth::user()->id)
             ->where(function ($query) use($p){
                 $query->where('name','like', '%'.$p.'%')
-                    ->where('email','like', '%'.$p.'%');
+                    ->orWhere('email','like', '%'.$p.'%');
             })
             ->get(['id', 'name','email', 'avatar']);
     }
