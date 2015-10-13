@@ -18,7 +18,7 @@
                     				<p class="grey-text col l12 text-darken-2">O arquivo deve ser do tipo PDF</p>
 	                    			<div class="file-field input-field col l9 m12 s12">
 							      		
-							      		<div class="btn yellow darken-2 btn-flat white-text">
+							      		<div class="btn yellow waves-effect darken-2 btn-flat white-text">
 							        		<span class="left">Arquivo</span>
 							        		<i class="material-icons right">picture_as_pdf</i>
 							        		<input type="file" name="project_file" id="project_file">
@@ -75,7 +75,7 @@
                                             
                                         </select>
                                         <br>
-                                        <button type="button" onclick="unmarkAdvisors()" class="btn btn-small grey">Desmarcar todos</button>
+                                        <button type="button" onclick="unmarkAdvisors()" class="btn waves-effect btn-small grey">Desmarcar todos</button>
                                         <br>
                                         <br>
                                         <p class="grey-text text-darken-2">Para selecionar mais de um orientador, mantenha o Ctrl pressionado ao clicar.</p>
@@ -95,7 +95,7 @@
                                             
                                         </select>
                                         <br>
-                                        <button type="button" onclick="unmarkStudents()" class="btn btn-small grey">Desmarcar todos</button>
+                                        <button type="button" onclick="unmarkStudents()" class="btn waves-effect btn-small grey">Desmarcar todos</button>
                                         <br>
                                         <small class="grey-text">Caso este projeto seja individual, não marque ninguém.</small>
                                         <br>

@@ -21,4 +21,12 @@ class Rating extends Model
     public function advisor(){
     	return $this->belongsTo('VidaEstudante\User', 'advisor_id');
     }
+
+    public function getApproved(){
+        if($this->approved == true){
+            return "Aprovado";
+        }else{
+            return "Reprovado";
+        }
+    }
 }

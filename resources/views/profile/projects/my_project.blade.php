@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col l12 m12 s12">
-            <div class="card col l7 m8 s12">
+            <div class="card col l7 m12 s12">
                 <div class="card-content ">
                     @if(count(Auth::user()->projectsFromStudent))
                         <p>Deseja criar um projeto?</p>
