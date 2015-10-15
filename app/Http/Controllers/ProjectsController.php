@@ -46,4 +46,13 @@ class ProjectsController extends Controller
 	public function myStudentsProjects(){
 		return view('profile.projects.advisor_project');
 	}
+
+	public function rate($id){
+		if(Auth::user()->projectsFromAdvisor()->find($id)){
+			$project = Project::find($id);
+			return view('profile.projects.rate', compact('project'));
+		}
+		else 
+			return redirect()->route('MyStudentsProjects');
+	}
 }

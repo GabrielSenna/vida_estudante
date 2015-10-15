@@ -26,25 +26,16 @@
                 <div class="card grey lighten-4">
                     <div class="card-content">
                         <h5 class="blue-text">Amigos</h5>
-                        <div class="row center-align">
+                        <div class="row center-align" style="margin-left:0px">
                             @forelse(Auth::user()->myFriends()->slice(0,6) as $user)
-
-
-                            <a href="#" class="col l4 m12 s12 center-align white valign-wrapper waves-effect waves-teal" style="height:150px;">
-
-                                <img src="{{ $user->getAvatar() }}" alt="" class="center-align avatar-search" style="margin-top:15px">
-                                <br>
-                                <p class="valign grey-text text-darken-2" style="font-size:13px">{{ $user->name }}</p>
-                                
-                                
-                                
-
-                            </a>
-                            
-                            
-                        @empty
-                            <p class="collection-item">Você não possui amigos</p>
-                        @endforelse
+                                <a href="#" class="col l3 m12 s12 center-align grey lighten-5 valign-wrapper waves-effect waves-teal card" style="height:150px; margin:3px">
+                                    <img src="{{ $user->getAvatar() }}" alt="" class="center-align avatar-search" style="margin-top:15px; margin-left:5px;margin-right:5px;">
+                                    <br>
+                                    <p class="valign grey-text text-darken-2" style="font-size:13px">{{ $user->name }}</p>
+                                </a>
+                            @empty
+                                <p class="collection-item">Você não possui amigos</p>
+                            @endforelse
                         </div>
                         <a href="{{ route('friends') }}" class="btn center-align">Ver todos</a>
                         
@@ -56,9 +47,6 @@
 
                 </div>
             </div>
-            
-            
-
         </div>
     </div>
 </div>

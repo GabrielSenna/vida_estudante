@@ -75,6 +75,7 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('store', ['as'=>'storeProject', 'uses'=> 'ProjectsController@store']);
         Route::get('download/{id}',['as'=>'downloadProject', 'uses'=>'ProjectsController@downloadProject']);
         Route::get('students', ['as'=>'MyStudentsProjects', 'uses'=>'ProjectsController@myStudentsProjects']);
+        Route::get('rate/{id}', ['as'=>'rateProject', 'uses'=>'ProjectsController@rate']);
     });
     
 

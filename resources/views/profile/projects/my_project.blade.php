@@ -36,7 +36,33 @@
                                             <h6 class="grey-text text-darken-1">{{ $project->description }}</h6>
                                             <a href="{{ route('downloadProject', ['id'=>$project->id]) }}" class="btn blue">Baixar projeto</a>  
                                             @if(count($project->ratings))
-                                               {{ $project->ratings }}
+                                               <br>
+                                                <br>
+                                                <div class="divider">
+                                                    
+                                                </div>
+                                                @foreach($project->ratings as $rating)
+                                                
+                                                    <h6 style="font-weight:600;">Avaliado por: {{ $rating->advisor->name }}</h6>
+                                                    <span style="font-weight:500">Nota: <span class="{{ ($rating->grade >= 6) ? 'green-text' : 'red-text' }}">{{ $rating->grade }}</span></span>
+                                                            <br>
+                                                            <span style="font-weight:500;">{{ $rating->getApproved() }}{!! ($rating->approved = 1) ? '<i class="material-icons green-text">check</i>' : '<i class="material-icons red-text">close/i>' !!}</span>
+                                                    <div class="card z-depth-0 blue lighten-4">
+                                                        <div class="card-content">
+                                                            Comentário:
+                                                            <div class="card z-depth-0">
+                                                                <div class="card-content">
+                                                                    <span class="grey-text text-darken-1">{{ $rating->comment }}</span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="right grey-text text-darken-2"><small>{{ $rating->created_at->diffForHumans() }}</small></span>
+                                                    <br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="divider">
+                                                        
+                                                    </div>
+                                                @endforeach
                                             @else
                                                 <h5 class="grey-text">Nenhum orientador avaliou seu projeto ainda.</h5>
                                             @endif

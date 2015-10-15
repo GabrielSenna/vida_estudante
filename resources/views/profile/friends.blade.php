@@ -38,7 +38,7 @@
 
                 <div class="collection white">
                     <h5 class="collection-item grey-text">Solicitações</h5>
-                    @foreach(Auth::user()->friendRequested()->get() as $user)
+                    @forelse(Auth::user()->friendRequested()->get() as $user)
                         <div class="right">
                             <div class="row">
                                 <a href="{{ route('acceptFriend', ['id'=>$user->id]) }}" class="btn-floating add-person-friends friend-action"><i class="material-icons">add</i></a>
@@ -61,9 +61,9 @@
                             <p>Ocupação</p>
 
                         </a>
-
-
-                    @endforeach
+                    @empty
+                        <p class="collection-item">Você não possui solicitações</p>
+                    @endforelse
                 </div>
             </div>
 

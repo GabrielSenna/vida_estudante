@@ -23,12 +23,33 @@
                                             <h6><strong>Tema:</strong> {{ $project->theme }}</h6>
                                             <h6><strong>Descrição:</strong></h6>
                                             <h6>{{ $project->description }}</h6>
-                                            <a href="{{ route('downloadProject', ['id'=>$project->id]) }}" class="btn blue">Baixar projeto</a>  
+                                            <a href="{{ route('downloadProject', ['id'=>$project->id]) }}" class="btn blue">Baixar projeto</a> 
+                                            <br>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col l6 m6 s6">
+                                                    <span class="grey-text text-darken-2">Alunos: </span>
+                                                    <ul>
+                                                        @foreach($project->students as $student)
+                                                            <li><a href="#">{{ $student->name }}</a></li>
+                                                            
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <div class="col l6 m6 s6">
+                                                    <span class="grey-text text-darken-2">Orientadores: </span>
+                                                    <ul>
+                                                        @foreach($project->advisors as $advisor)
+                                                            <li><a href="#">{{ $advisor->name }}</a></li>
+                                                            
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            
                                             @if(count($project->ratings))
-                                                <br>
-                                                <br>
+                                                
                                                 <div class="divider">
-                                                    
                                                 </div>
                                                 @foreach($project->ratings as $rating)
                                                 
@@ -41,10 +62,10 @@
                                                             Comentário:
                                                             <div class="card z-depth-0">
                                                                 <div class="card-content">
-                                                                    <span class="grey-text">{{ $rating->comment }}</span>
+                                                                    <span class="grey-text text-darken-1">{{ $rating->comment }}</span>
                                                                 </div>
                                                             </div>
-                                                            <span class="right grey-text">{{ $rating->created_at->diffForHumans() }}</span>
+                                                            <span class="right grey-text text-darken-1"><small>{{ $rating->created_at->diffForHumans() }}</small></span>
                                                     <br>
                                                         </div>
                                                     </div>
@@ -58,7 +79,7 @@
                                             @endif
                                                 <span class="grey-text text-darken-3">Deseja avaliar este projeto?</span>
                                                 <br>
-                                                <a href="#" class="btn yellow darken-2">Avaliar projeto</a>
+                                                <a href="{{ route('rateProject', ['id'=>$project->id]) }}" class="btn yellow darken-2">Avaliar projeto</a>
                                                 <br>
                                                 <br>
                                         </div>

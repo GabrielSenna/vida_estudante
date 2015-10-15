@@ -179,4 +179,37 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function ratings(){
         return $this->hasMany('VidaEstudante\Rating', 'advisor_id');
     }
+
+    public function countAdvisors(){
+        $count = 0;
+        $total = null;
+        foreach($this->projectsFromStudent as $project){
+            foreach($project->advisors as $advisor){
+                $total[] = $advisor->id;
+            }
+        }
+        if($total == null){
+            return 0;
+        }
+        $total = array_unique($total);
+        $count = sizeOf($total);
+        return $count;
+    }
+
+    public function countStudents(){
+        $count = 0;
+        $total = null;
+        foreach($this->projectsFromAdvisor as $project){
+            foreach($project->students as $student){
+                $total[] = $student->id;
+            }
+        }
+        if($total == null){
+            return 0;
+        }
+        $total = array_unique($total);
+        $count = sizeOf($total);
+        return $count;
+    }
+
 }
