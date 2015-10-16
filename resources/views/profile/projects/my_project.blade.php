@@ -15,17 +15,11 @@
                             <br>   
                         <ul class="collapsible" data-collapsible="accordion">
                             @foreach (Auth::user()->projectsFromStudent as $project)
-                                
-                                <li >
+                                <li>
                                     <div class="collapsible-header">
-                                        
-                                            <h5 class="blue-text text-darken-2"><strong>Projeto:</strong> {{ $project->title }}<i class="material-icons right" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i></h5>
-
-                                              
-                                        
-                                        
-                                            
-                                        
+                                        <h5 class="blue-text text-darken-2">
+                                            <strong>Projeto:</strong> {{ $project->title }}<i class="material-icons right" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i>
+                                        </h5>
                                     </div>
                                     <div class="collapsible-body">
                                         <div style="margin-left:15px">
@@ -55,7 +49,7 @@
                                                                     <span class="grey-text text-darken-1">{{ $rating->comment }}</span>
                                                                 </div>
                                                             </div>
-                                                            <span class="right grey-text text-darken-2"><small>{{ $rating->created_at->diffForHumans() }}</small></span>
+                                                            <span class="right grey-text text-darken-2"><small>{{ $rating->updated_at->diffForHumans() }}</small></span>
                                                     <br>
                                                         </div>
                                                     </div>

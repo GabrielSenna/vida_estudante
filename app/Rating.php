@@ -26,7 +26,7 @@ class Rating extends Model
         if($this->approved == true){
             return "Aprovado";
         }else{
-            return "Reprovado";
+            return "Insuficiente";
         }
     }
 }

@@ -5,8 +5,10 @@ namespace VidaEstudante\Http\Controllers;
 use Illuminate\Http\Request;
 use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Requests\ProjectRequest;
+use VidaEstudante\Http\Requests\RatingRequest;
 use VidaEstudante\Http\Controllers\Controller;
 use VidaEstudante\Project;
+use VidaEstudante\Rating;
 use File;
 use Auth;
 use Response;
@@ -52,7 +54,37 @@ class ProjectsController extends Controller
 			$project = Project::find($id);
 			return view('profile.projects.rate', compact('project'));
 		}
-		else 
+		else{
 			return redirect()->route('MyStudentsProjects');
+		}
+			
+	}
+
+	public function rateSubmit(RatingRequest $request, Rating $ratingModel, $id){
+		if(Auth::user()->projectsFromAdvisor()->find($id)){
+			$project = Project::find($id);
+			$ratings = $project->ratings->all();
+			if($request->approved == true){
+				$approved = true;
+			}else{
+				$approved = false;
+			}
+			foreach($ratings as $rating){
+				if($rating->advisor->id == Auth::user()->id){
+					$rating->update(['comment'=>$request->comment,'grade'=>$request->grade, 'approved'=>$approved]);
+					return redirect()->route('MyStudentsProjects');
+				}
+			}
+			$ratingModel->comment = $request->comment;
+			$ratingModel->grade = $request->grade;
+			$ratingModel->approved = $approved;
+			$ratingModel->project_id = $project->id;
+			$ratingModel->advisor_id = Auth::user()->id;
+			$ratingModel->save();
+			return redirect()->route('MyStudentsProjects');
+		}
+		else{
+			return redirect()->route('MyStudentsProjects');
+		}
 	}
 }
