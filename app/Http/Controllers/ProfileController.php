@@ -52,17 +52,17 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->avatar = $request->get('image-field');
         $user->save();
-        $file = File::makeDirectory(storage_path().'\users\\'.$user->id, 0777, true, true);
-        $imageAvatar->save(storage_path().'\users\\'.$user->id.'\\'.'avatar.jpg');
+        $file = File::makeDirectory(storage_path().'/users/'.$user->id, 0777, true, true);
+        $imageAvatar->save(storage_path().'/users/'.$user->id.'/'.'avatar.jpg');
         return redirect()->route('profile.edit');
     }
 
     public function removeAvatar(){
         $user = Auth::user();
-        if (file_exists(storage_path().'\users\\'.Auth::user()->id.'\avatar.jpg'))
+        if (file_exists(storage_path().'/users/'.Auth::user()->id.'/avatar.jpg'))
         {
             // excluir o arquivo
-            File::delete(storage_path().'\users\\'.Auth::user()->id.'\avatar.jpg');
+            File::delete(storage_path().'/users/'.Auth::user()->id.'/avatar.jpg');
 
         }
 

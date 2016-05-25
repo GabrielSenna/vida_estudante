@@ -33,12 +33,13 @@ class ProjectsController extends Controller
 			$project->students()->attach(Auth::user()->id);
 		}
 		$project->advisors()->sync($request->advisors);
-		$path = File::makeDirectory(storage_path().'\projects\\'.$project->id, 0777, true, true);
-		$projectFile->move(storage_path().'\projects\\'.$project->id, 'project.pdf');
+		$path = File::makeDirectory(storage_path().'/projects/'.$project->id, 0777, true, true);
+		$projectFile->move(storage_path().'/projects/'.$project->id, 'project.pdf');
+		return redirect()->route('myProjects');
 	}
 
 	public function downloadProject($id){
-		$file= storage_path().'\projects\\'.$id.'\project.pdf';
+		$file= storage_path().'/projects/'.$id.'/project.pdf';
         $headers = [
               'Content-Type: application/pdf',
             ];
