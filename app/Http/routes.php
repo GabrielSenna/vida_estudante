@@ -74,6 +74,8 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('create', ['as'=>'createProject', 'uses'=> 'ProjectsController@create']);
         Route::post('store', ['as'=>'storeProject', 'uses'=> 'ProjectsController@store']);
         Route::get('download/{id}',['as'=>'downloadProject', 'uses'=>'ProjectsController@downloadProject']);
+        Route::get('edit/{id}',['as'=>'editProject', 'uses'=>'ProjectsController@editProject']);
+        Route::post('edit/{id}',['as'=>'updateProject', 'uses'=>'ProjectsController@update']);
         Route::get('students', ['as'=>'MyStudentsProjects', 'uses'=>'ProjectsController@myStudentsProjects']);
         Route::get('rate/{id}', ['as'=>'rateProject', 'uses'=>'ProjectsController@rate']);
         Route::post('rate/submit/{id}', ['as'=>'rateSubmit', 'uses'=>'ProjectsController@rateSubmit']);

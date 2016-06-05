@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use VidaEstudante\Http\Requests;
 use VidaEstudante\Http\Requests\ProjectRequest;
 use VidaEstudante\Http\Requests\RatingRequest;
+use VidaEstudante\Http\Requests\EditProjectRequest;
 use VidaEstudante\Http\Controllers\Controller;
 use VidaEstudante\Project;
 use VidaEstudante\Rating;
@@ -44,6 +45,25 @@ class ProjectsController extends Controller
               'Content-Type: application/pdf',
             ];
         return Response::download($file, 'project'.$id.'.pdf', $headers);
+	}
+
+	public function editProject($id) {
+		if(Auth::user()->projectsFromStudent->find($id)){
+			$project = Auth::user()->projectsFromStudent->find($id);
+			return view('profile.projects.edit', compact('project'));
+		}
+		return redirect()->route('myProjects');
+	}
+
+	public function update(EditProjectRequest $request, $id) {
+		if(Auth::user()->projectsFromStudent->find($id)){
+			$project = Auth::user()->projectsFromStudent->find($id);
+			$project->touch();
+			$projectFile = $request->file('project_file');
+			$path = File::makeDirectory(storage_path().'/projects/'.$project->id, 0777, true, true);
+			$projectFile->move(storage_path().'/projects/'.$project->id, 'project.pdf');
+			return redirect()->route('myProjects');
+		}
 	}
 
 	public function myStudentsProjects(){

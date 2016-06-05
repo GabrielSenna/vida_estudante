@@ -17,8 +17,9 @@
                             @foreach (Auth::user()->projectsFromStudent as $project)
                                 <li>
                                     <div class="collapsible-header">
-                                        <h5 class="blue-text text-darken-2">
-                                            <strong>Projeto:</strong> {{ $project->title }}<i class="material-icons right" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i>
+                                        <h5 class="blue-text text-darken-2 title-project truncate">
+                                            <strong>Projeto:</strong> <span>{{ $project->title }}</span>
+                                            <i class="material-icons right hide-on-small-only" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i>
                                         </h5>
                                     </div>
                                     <div class="collapsible-body">
@@ -28,7 +29,11 @@
                                             <h6 class="grey-text text-darken-1"><strong>Tema:</strong> {{ $project->theme }}</h6>
                                             <h6 class="grey-text text-darken-1"><strong>Descrição:</strong></h6>
                                             <h6 class="grey-text text-darken-1">{{ $project->description }}</h6>
-                                            <a href="{{ route('downloadProject', ['id'=>$project->id]) }}" class="btn blue">Baixar projeto</a>  
+                                            <small>Última edição: {{ $project->updated_at->diffForHumans() }}</small>
+                                            <br>
+
+                                            <a href="{{ route('downloadProject', ['id'=>$project->id]) }}" class="btn blue">Baixar projeto</a>
+                                            <a href="{{ route('editProject', ['id'=>$project->id]) }}" class="btn cyan darken-2">Editar projeto</a>
                                             @if(count($project->ratings))
                                                <br>
                                                 <br>
@@ -39,8 +44,8 @@
                                                 
                                                     <h6 style="font-weight:600;">Avaliado por: {{ $rating->advisor->name }}</h6>
                                                     <span style="font-weight:500">Nota: <span class="{{ ($rating->grade >= 6) ? 'green-text' : 'red-text' }}">{{ $rating->grade }}</span></span>
-                                                            <br>
-                                                            <span style="font-weight:500;">{{ $rating->getApproved() }}{!! ($rating->approved == 1) ? '<i class="material-icons green-text">check</i>' : '<i class="material-icons red-text">close</i>' !!}</span>
+                                                    <br>
+                                                    <span style="font-weight:500;">{{ $rating->getApproved() }}{!! ($rating->approved == 1) ? '<i class="material-icons green-text">check</i>' : '<i class="material-icons red-text">close</i>' !!}</span>
                                                     <div class="card z-depth-0 blue lighten-4">
                                                         <div class="card-content">
                                                             Comentário:
@@ -50,22 +55,17 @@
                                                                 </div>
                                                             </div>
                                                             <span class="right grey-text text-darken-2"><small>{{ $rating->updated_at->diffForHumans() }}</small></span>
-                                                    <br>
+                                                            <br>
                                                         </div>
                                                     </div>
                                                     <div class="divider">
-                                                        
                                                     </div>
                                                 @endforeach
                                             @else
                                                 <h5 class="grey-text">Nenhum orientador avaliou seu projeto ainda.</h5>
                                             @endif
                                         </div>
-
-                                        
                                     </div>
-                                    
-                                    
                                 </li>
                                  
                             @endforeach
