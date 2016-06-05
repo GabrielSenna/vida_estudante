@@ -12,8 +12,11 @@
     <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body class="blue-grey lighten-5">
-    @include('profile.layouts.header')
-    @include('profile.layouts.sidebar')
-    @yield('content')
+    <div id="wrapper">
+        @include('profile.layouts.sidebar')
+        @include('profile.layouts.header')
+        
+        @yield('content')        
+    </div>
 </body>
 </html>

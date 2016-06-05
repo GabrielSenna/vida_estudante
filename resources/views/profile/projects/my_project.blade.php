@@ -40,7 +40,7 @@
                                                     <h6 style="font-weight:600;">Avaliado por: {{ $rating->advisor->name }}</h6>
                                                     <span style="font-weight:500">Nota: <span class="{{ ($rating->grade >= 6) ? 'green-text' : 'red-text' }}">{{ $rating->grade }}</span></span>
                                                             <br>
-                                                            <span style="font-weight:500;">{{ $rating->getApproved() }}{!! ($rating->approved = 1) ? '<i class="material-icons green-text">check</i>' : '<i class="material-icons red-text">close/i>' !!}</span>
+                                                            <span style="font-weight:500;">{{ $rating->getApproved() }}{!! ($rating->approved == 1) ? '<i class="material-icons green-text">check</i>' : '<i class="material-icons red-text">close</i>' !!}</span>
                                                     <div class="card z-depth-0 blue lighten-4">
                                                         <div class="card-content">
                                                             Comentário:
