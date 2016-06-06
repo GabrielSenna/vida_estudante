@@ -53,6 +53,10 @@ a.center-align.register-btn h5{
     font-size: 12px !important;
 }
 
+#dropdown-user{
+    width: 170px;
+}
+
 @media screen and (max-width: 600px){
     .big-image{
         height: -moz-calc(100vh - 56px);

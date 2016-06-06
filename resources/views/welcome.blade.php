@@ -32,8 +32,8 @@
                                         <label for="password">Senha</label>
                                     </div>
                                     <button type="submit" class="btn btn-flat waves-effect cyan white-text send-form">Entrar</button>
-                                    <p class="center-align grey-text text-darken-2">ou</p>
-                                    <a href="#" class="btn btn-flat waves-effect blue darken-2 white-text send-form">Entrar com o facebook</a>
+                                    <!-- <p class="center-align grey-text text-darken-2">ou</p>
+                                    <a href="#" class="btn btn-flat waves-effect blue darken-2 white-text send-form">Entrar com o facebook</a> -->
                                 </form>
                                 <h6 class="center-align grey-text">Ainda não é cadastrado?</h6>
                                 <a href="{{ url('auth/register') }}" class="center-align register-btn"><h5>Registre-se aqui!</h5></a>

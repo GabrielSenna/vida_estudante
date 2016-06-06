@@ -9,7 +9,7 @@
                 </li>
                 <li><a href="{{ route('home') }}" class="logo-top"><img src="{{ asset('img/logo-header.png') }}" alt=""></a></li>
             </ul>
-            <div class="container">
+            <div class="">
                 <ul class="hide-on-med-and-down left">
                     
                 </ul>
