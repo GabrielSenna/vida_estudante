@@ -14,7 +14,8 @@
                                 
                                 <li >
                                     <div class="collapsible-header">
-                                            <h5 class="blue-text text-darken-2"><strong>Projeto:</strong> {{ $project->title }}<i class="material-icons right" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i></h5>
+                                            <h5 class="blue-text text-darken-2 title-project truncate">
+                                                <strong>{{ $project->title }}</strong><i class="material-icons right" style="margin-right:5px; line-height:38px">keyboard_arrow_down</i></h5>
                                     </div>
                                     <div class="collapsible-body grey lighten-4">
                                         <div style="margin-left:15px; margin-right:15px; padding-top:10px;">

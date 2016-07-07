@@ -49,7 +49,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
                 $query->where('name','like', '%'.$p.'%')
                     ->orWhere('email','like', '%'.$p.'%');
             })
-            ->get(['id', 'name','email', 'avatar']);
+            ->get(['id', 'name','email', 'avatar', 'occupation']);
     }
 
     public function myAvatar(){

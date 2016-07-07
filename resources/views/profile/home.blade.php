@@ -27,7 +27,7 @@
                     <div class="card-content">
                         <h5 class="cyan-text">Amigos</h5>
                         <div class="row">
-                            @forelse(Auth::user()->myFriends()->slice(0,6) as $user)
+                            @forelse(Auth::user()->myFriends()->slice(0,4) as $user)
                                 <div class="col l12 m6 s12 ">
                                     <a href="#" class="friends-link grey lighten-5 waves-effect waves-teal card">
                                         <img src="{{ $user->getAvatar() }}" alt="" class="avatar-friends" style="">
@@ -38,7 +38,12 @@
                                     </a>   
                                 </div>
                             @empty
-                                <p class="collection-item">Você não possui amigos</p>
+                                <div class="row">
+                                    <div class="col sm 12">
+                                        <p class="collection-item" style="margin-left: 13px">Você não possui amigos</p>
+                                    </div>
+
+                                </div>
                             @endforelse
                         </div>
                         <a href="{{ route('friends') }}" class="btn cyan darken-2 center-align">Ver todos</a>

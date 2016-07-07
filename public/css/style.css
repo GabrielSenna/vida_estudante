@@ -117,7 +117,7 @@ a.center-align.register-btn h5{
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
         -o-transform: rotate(180deg);
-        writing-mode: lr-tb;
+        writing-mode: horizontal-tb;
     }
 }
 
@@ -132,6 +132,9 @@ a.center-align.register-btn h5{
 
 /* User área */
 
+.indicator{
+    background-color: #00e5ff !important;
+}
 
 .avatar-top{
     width: 40px;
@@ -234,7 +237,6 @@ min-width: 320px;
 
 .avatar-friends{
     width: 40px;
-    margin-right: 10px;
     border-radius: 50%;
     float: left;
     margin-right:5px;
@@ -251,6 +253,21 @@ min-width: 320px;
     display: block !important;
     position: absolute !important;
     height: 100%;
+}
+
+.slide_roll{
+    position: absolute;
+    z-index: 99999;
+}
+
+#slide_1_roll_right {
+    top: 210px;
+    right: -15px;
+}
+
+.center-display {
+    display: block;
+    margin: 0 auto;
 }
 
 .friend-action{

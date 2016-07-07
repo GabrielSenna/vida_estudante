@@ -54,11 +54,9 @@
 
                             <img src="{{ $user->getAvatar() }}" alt="" class="left avatar-search">
 
-                            {{ $user->name }}
-                            <br>
-                            {{ $user->email }}
-                            <br>
-                            <p>Ocupação</p>
+                            <span class="truncate">{{ $user->name }}</span>
+                            <span class="truncate">{{ $user->email }}</span>
+                            <p class="truncate">{{ $user->occupation }}</p>
 
                         </a>
                     @empty
