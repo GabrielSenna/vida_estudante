@@ -16,18 +16,17 @@
                 <a href="#" class="collection-item">
 
                     <img src="{{ $user->getAvatar($user->id) }}" alt="" class="left avatar-search">
-                    {{ $user->name }}
-                    <br>
-                    {{ $user->email }}
-                    <br>
-                    <p>Ocupação</p>
+                    <span class="truncate">{{ $user->name }}</span>
+                    <p class="truncate">{{ $user->email }}</p>
+                    <p class="truncate">{{ $user->occupation }}</p>
+
                 </a>
-                @if(!Auth::user()->isFriend($user->id))
-                    <a href="{{ route('addFriend', ['id'=> $user->id]) }}">Adicionar amigo</a>
-                @endif
-                @if(Auth::user()->pendingFriend($user->id))
-                    <span>Aguardando aprovação</span>
-                @endif
+                    @if(!Auth::user()->isFriend($user->id))
+                        <a href="{{ route('addFriend', ['id'=> $user->id]) }}" class="btn-floating btn-sm" style="position:relative; bottom:45px; left:20px;"><i class="material-icons">add</i></a>
+                    @endif
+                    @if(Auth::user()->pendingFriend($user->id))
+                        <a href="{{ route('addFriend', ['id'=> $user->id]) }}" class="btn-floating cyan btn-sm disabled" style="position:relative; bottom:45px; left:20px;"><i class="material-icons">add</i></a>
+                    @endif
                 
             @endforeach
         </div>

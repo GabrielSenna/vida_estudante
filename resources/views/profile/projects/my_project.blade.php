@@ -23,7 +23,7 @@
                                         </h5>
                                     </div>
                                     <div class="collapsible-body">
-                                        <div style="margin-left:15px">
+                                        <div style="margin-left:15px; margin-right:15px; padding-top:10px;">
                                             <h6 class="grey-text text-darken-1"><strong>Título:</strong> {{ $project->title }}</h6>         
                                             <h6 class="grey-text text-darken-1"><strong>Assunto:</strong> {{ $project->subject }}</h6>
                                             <h6 class="grey-text text-darken-1"><strong>Tema:</strong> {{ $project->theme }}</h6>
@@ -39,6 +39,26 @@
                                                 <br>
                                                 <div class="divider">
                                                     
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col l6 m6 s6">
+                                                        <span class="grey-text text-darken-2">Alunos: </span>
+                                                        <ul>
+                                                            @foreach($project->students as $student)
+                                                                <li><a href="#">{{ $student->name }}</a></li>
+
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col l6 m6 s6">
+                                                        <span class="grey-text text-darken-2">Orientadores: </span>
+                                                        <ul>
+                                                            @foreach($project->advisors as $advisor)
+                                                                <li><a href="#">{{ $advisor->name }}</a></li>
+
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 @foreach($project->ratings as $rating)
                                                 
