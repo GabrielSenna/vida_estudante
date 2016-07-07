@@ -1,5 +1,5 @@
-/storage
-/config/database.php
+/storage/projects
+/storage/users
 /vendor
 /node_modules
 Homestead.yaml
